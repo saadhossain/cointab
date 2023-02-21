@@ -1,13 +1,59 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Shantell+Sans&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+.coinBtn{
+    padding: 12px 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: #01BCB9;
+    color: #fff;
+    font-family: 'Shantell Sans', cursive;
+    font-size: 20px;
+    font-weight: 500;
+    transition: 0.5s all ease-in-out;
+}
+.coinBtnDelete{
+    background-color: #EB5043;
+}
+.coinBtn:hover{
+    background-color: #00D983;
+}
+.coinBtnDelete:hover{
+    background-color: #db3324;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.page-btn{
+    background-color: #01BCB9;
+    color:#fff;
+    padding: 5px 15px;
+    font-weight: 700;
+    margin-right: 10px;
+    border-radius: 10%;
+    cursor: pointer;
+}
+.page-selected{
+    background-color: #00D983;
+    color:#fff;
+    padding: 5px 15px;
+    font-weight: 700;
+    margin-right: 10px;
+    border-radius: 10%;
+    cursor: pointer;
+}
+.cointab-bg{
+    background-image: url('./assests/cointab-bg-grey.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.about-bg{
+    background-image: url('./assests/about-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
