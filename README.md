@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# Getting Started with CoinTab
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Featues of this Portal
 
-In the project directory, you can run:
 
-### `npm start`
+## `Home Page`
+- Visitor/Audience Can Fetch Data by Clicking the `Fetch Users` Button
+- When click on `Fetch Users` a `Function` will be executed which will load `Seventy (70)` Data at a time, `Developer (I) can control the data limit`
+- After Fetching the data from `Random User API` data will be  `Stored/Saved` to our `Database`
+- While `Fetching and Saving` Data fetch `Button` will be disabled and `show a loader`
+- By clicking `Delete Users` button `System` will show a confirmation `popup` and if user confirm `System` will `Delete` all data.
+- If user wish to see all `Users Details` they can click on `User Details` and it will take him to the `User Details` Page.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## `User Details Page`
+- In this page Visitor/Audience will see all the users in a Table view
+- At a time by `default` the `System` will see `Ten(10)` users per page
+- Visitor can Set the `User Limit` to show `Per Page` and when select `Filter` system will show data according to the filter
+- On the bottom of the Table User will see `Pagination` buttons, by clicking the specific button user can see the `Data on Specific Page`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `Technology Used in this Project`
+- JavaScript
+- ReactJs
+- React Router DOM
+- React Hot Toast
+- TailwindCSS
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Thank you
