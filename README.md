@@ -17,6 +17,10 @@
 - At a time by `default` the `System` will see `Ten(10)` users per page
 - Visitor can Set the `User Limit` to show `Per Page` and when select `Filter` system will show data according to the filter
 - On the bottom of the Table User will see `Pagination` buttons, by clicking the specific button user can see the `Data on Specific Page`
+- In Users Page, Visitor/Audience can filter users data according to the `Gender`.
+- Visitor/Audience Can Find User by Search by users name or `Email`
+- Visitor/Audience Can `Filter` the Users by `Gender` and `Items Per Page`
+- Both `Search` and `Filter` with will together
 
 ### `Technology Used in this Project`
 - JavaScript
