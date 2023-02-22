@@ -8,6 +8,7 @@ const UsersDetails = () => {
     const [users, setUsers] = useState([]);
     const [dataCount, setDataCount] = useState(0);
 
+    console.log(users);
     // Set How many users show per page
     const [usersPerPage, setUsersPerPage] = useState(10);
 
@@ -28,6 +29,28 @@ const UsersDetails = () => {
             .catch(err => console.error(err));
     }, [currentPage, usersPerPage]);
 
+    //Set the search query and gender filter to the state
+    const [searchInputQuery, setSearchInputQuery] = useState('');
+    const [genderfilter, setGenderFilter] = useState('');
+
+    //Handle Input Search
+    const handleInputSearchQuery = (e) => {
+        setSearchInputQuery(e.target.value);
+    }
+    //Handle Gender Filter
+    const handleGenderFilterChange = (e) => {
+        setGenderFilter(e.target.value);
+    }
+    //functionality to implement search feature
+    let filteredUsers = users && users?.filter(user => {
+        const { name, email, gender } = user;
+        return (
+            (name.toLowerCase().includes(searchInputQuery.toLowerCase()) ||
+                email.toLowerCase().includes(searchInputQuery.toLowerCase())) &&
+            (genderfilter === "" || gender.toLowerCase() === genderfilter.toLowerCase())
+        );
+    });
+
     // Handle page change
     const handlePageChange = (pageNum) => {
         setCurrentPage(pageNum);
@@ -42,17 +65,35 @@ const UsersDetails = () => {
         <div className='cointab-bg'>
             <div className='w-11/12 md:w-10/12 mx-auto mt-2 md:pt-10 min-h-screen md:min-h-[85vh]'>
                 {
-                    users?.length ?
+                    filteredUsers?.length ?
                         <>
                             <h2 className='text-3xl md:text-4xl font-semibold text-secondary font-Shantell md:mt-5 text-center'>Users Details</h2>
-                            <div className='w-11/12 lg:w-10/12 mx-auto flex justify-end'>
-                                <label htmlFor="service" className='text-jane font-semibold mr-2'>Filter</label>
-                                <select onClick={(e) => setUsersPerPage(e.target.value)} it="service" className='border-2 border-jane rounded font-semibold'>
-                                    <option value="10" selected>10 Service</option>
-                                    <option value="20">20 Service</option>
-                                    <option value="30">30 Service</option>
-                                    <option value="50">50 Service</option>
-                                </select>
+                            {/* Search box and filter wrapper */}
+                            <div className="w-full md:w-10/12 mx-auto flex justify-between items-end my-5">
+                                {/* Search Box */}
+                                <div className="w-3/4 md:w-2/4">
+                                    <input type="text" placeholder="Search by name or email" value={searchInputQuery} onChange={handleInputSearchQuery} className="px-3 py-2 bg-white border-2 border-gray-400 text-gray-800 rounded-md w-full" />
+                                </div>
+                                {/* Gender Filter */}
+                                <div className="w-2/5 ml-auto flex flex-col md:flex-row gap-2 items-center justify-end">
+                                    <div>
+                                        <label htmlFor="Gender">Gender</label>
+                                        <select value={genderfilter} onChange={handleGenderFilterChange} className="px-3 py-2 border-gray-400 rounded-md bg-gray-300">
+                                            <option value="">All</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                    </div>
+                                    <div className=''>
+                                        <label htmlFor="user-per-page" >Show Per Page</label>
+                                        <select onClick={(e) => setUsersPerPage(e.target.value)} it="service" className='px-3 py-2 border-gray-400 rounded-md bg-gray-300'>
+                                            <option value="10" selected>10 Service</option>
+                                            <option value="20">20 Service</option>
+                                            <option value="30">30 Service</option>
+                                            <option value="50">50 Service</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
                             {/* Tables to Show users Data */}
                             <div className="mt-5 text-gray-100">
@@ -78,7 +119,7 @@ const UsersDetails = () => {
                                         </thead>
 
                                         {
-                                            users.map(user => <DisplayUsersDetails user={user} key={user.id} />)
+                                            filteredUsers.map(user => <DisplayUsersDetails user={user} key={user.id} />)
                                         }
                                     </table>
                                 </div>
@@ -90,15 +131,18 @@ const UsersDetails = () => {
                             <Link to='/'><button className='coinBtn mt-5'>Home</button></Link>
                         </div>
                 }
-                <div className='flex justify-center'>
-                    <div className='grid grid-cols-12 my-5 gap-y-2'>
-                        {pageNumbers.map(number => (
-                            <button key={number} onClick={() => handlePageChange(number)} className={currentPage === number ? 'page-selected' : 'page-btn'}>
-                                {number}
-                            </button>
-                        ))}
+                {
+                    filteredUsers.length >= 10 &&
+                    <div className='flex justify-center'>
+                        <div className='grid grid-cols-12 my-5 gap-y-2'>
+                            {pageNumbers.map(number => (
+                                <button key={number} onClick={() => handlePageChange(number)} className={currentPage === number ? 'page-selected' : 'page-btn'}>
+                                    {number}
+                                </button>
+                            ))}
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         </div>
     );
